@@ -5,6 +5,9 @@
   "description": "Astro.js loader for Photoserv",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -25,17 +28,31 @@
     "./strings": {
       "import": "./dist/strings.js",
       "types": "./dist/strings.d.ts"
-    }
+    },
+    "./components/*": "./dist/components/*.astro"
   },
   "scripts": {
-    "build": "tsc"
+    "build:ts": "tsc",
+    "copy:astro": "cpx \"src/components/**/*.astro\" dist/components",
+    "build": "npm run build:ts && npm run copy:astro"
   },
-  "keywords": [],
+  "keywords": [
+    "photoserv",
+    "astro",
+    "photography"
+  ],
   "author": "Max Loiacono <maxloiacono@protonmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^24.10.1",
-    "astro": "^5.16.4",
+    "cpx": "^1.5.0",
     "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "astro": "^5.16.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/photoserv/astro-loader"
   }
 }
