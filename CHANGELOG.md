@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/photoserv/astro-loader/compare/astro-loader-0.0.3...astro-loader-0.0.4) (2025-12-04)
+
+
+### Bug Fixes
+
+* add --provenance to deployment workflow ([9e2ced2](https://github.com/photoserv/astro-loader/commit/9e2ced2e2c029aee2458c2b304b0ccb52125a29a))
+
 ## [0.0.3](https://github.com/photoserv/astro-loader/compare/astro-loader-0.0.2...astro-loader-0.0.3) (2025-12-04)
 
 
