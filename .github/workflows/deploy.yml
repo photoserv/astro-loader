@@ -1,0 +1,7 @@
+name: deploy-docker-image
+
+on:
+  release:
+    types: [published]
+
+# TODO

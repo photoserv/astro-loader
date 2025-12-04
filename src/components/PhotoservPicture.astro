@@ -1,0 +1,25 @@
+---
+export interface Props {
+    photo: string | { uuid: string };
+    size: string;
+    [key: string | number]: any;
+}
+
+const { photo, size, class: className = "", ...rest } = Astro.props;
+
+if (!photo) {
+    throw new Error(`"photo" prop is required.`);
+}
+
+const uuid = typeof photo === "string" ? photo : photo.uuid;
+const filename = `${uuid}-${size}.jpg`;
+const src = `/photoserv-cache/${filename}`;
+---
+
+<img
+    src={src}
+    alt={rest.alt || "Photo"}
+    class={className}
+    draggable="false"
+    {...rest}
+/>

@@ -1,0 +1,41 @@
+{
+  "name": "@photoserv/astro-loader",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Astro.js loader for Photoserv",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./api": {
+      "import": "./dist/api.js",
+      "types": "./dist/api.d.ts"
+    },
+    "./definitions": {
+      "import": "./dist/definitions.js",
+      "types": "./dist/definitions.d.ts"
+    },
+    "./loaders": {
+      "import": "./dist/loaders.js",
+      "types": "./dist/loaders.d.ts"
+    },
+    "./strings": {
+      "import": "./dist/strings.js",
+      "types": "./dist/strings.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "Max Loiacono <maxloiacono@protonmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "astro": "^5.16.4",
+    "typescript": "^5.9.3"
+  }
+}
