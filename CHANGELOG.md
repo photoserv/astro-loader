@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.5](https://github.com/photoserv/astro-loader/compare/astro-loader-0.0.4...astro-loader-0.0.5) (2025-12-04)
+
+
+### Bug Fixes
+
+* Grant permissions to the deployment workflow ([0fb9e7f](https://github.com/photoserv/astro-loader/commit/0fb9e7fb1a72b43c7444f52a5c63c921fdc16add))
+
 ## [0.0.4](https://github.com/photoserv/astro-loader/compare/astro-loader-0.0.3...astro-loader-0.0.4) (2025-12-04)
 
 
