@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0](https://github.com/photoserv/astro-loader/compare/astro-loader-0.0.5...astro-loader-0.1.0) (2026-02-21)
+
+
+### Features
+
+* Parity with Photoserv 0.9.0 ([04f0e1c](https://github.com/photoserv/astro-loader/commit/04f0e1cdddf2e8923400b57e1725e623a28ebc4b))
+
 ## [0.0.5](https://github.com/photoserv/astro-loader/compare/astro-loader-0.0.4...astro-loader-0.0.5) (2025-12-04)
 
 
