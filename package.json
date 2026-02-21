@@ -44,7 +44,7 @@
   "author": "Max Loiacono <maxloiacono@protonmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.3.0",
     "cpx": "^1.5.0",
     "typescript": "^5.9.3"
   },
