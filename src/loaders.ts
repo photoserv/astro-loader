@@ -1,6 +1,6 @@
 import { type Loader } from "astro/loaders";
-import { AlbumSchema, PhotoSchema, TagSchema } from "./definitions";
-import { PhotoservAPI } from "./api";
+import { AlbumSchema, PhotoSchema, TagSchema } from "./definitions.js";
+import { PhotoservAPI } from "./api.js";
 import path from "path";
 import fs from "fs/promises";
 import crypto from "crypto";

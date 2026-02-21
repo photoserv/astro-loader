@@ -1,4 +1,4 @@
-import type { Album, AlbumSummary, Photo, PhotoSummary, Tag, TagSummary } from "./definitions";
+import type { Album, AlbumSummary, Photo, PhotoSummary, Tag, TagSummary } from "./definitions.js";
 
 export class PhotoservAPI {
     private apiUrl: string;
