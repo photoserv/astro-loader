@@ -1,6 +1,6 @@
 import { type Loader } from "astro/loaders";
-import { AlbumSchema, PhotoSchema, TagSchema } from "./definitions.js";
-import { PhotoservAPI } from "./api.js";
+import { AlbumSchema, PhotoSchema, TagSchema } from "./definitions";
+import { PhotoservAPI } from "./api";
 import path from "path";
 import fs from "fs/promises";
 import crypto from "crypto";
@@ -73,12 +73,17 @@ export function photosLoader(options: {
 };
 
 
-export function albumsLoader(options: { apiUrl: string, apiKey: string }): Loader {
+export function albumsLoader(options: { 
+    apiUrl: string, 
+    apiKey: string,
+    recursive?: boolean,
+    recursiveAlbums?: string[]
+}): Loader {
     return {
         name: "photoserv-albums-loader",
 
         load: async ({ store, parseData, logger, generateDigest, config }) => {
-            const { apiUrl, apiKey } = options;
+            const { apiUrl, apiKey, recursive = false, recursiveAlbums = [] } = options;
 
             if (!apiUrl || !apiKey) {
                 throw new Error(
@@ -91,7 +96,7 @@ export function albumsLoader(options: { apiUrl: string, apiKey: string }): Loade
             logger.info(`Fetching albums from ${apiUrl}...`);
 
             try {
-                const albums = await api.getAlbums();
+                const albums = await api.getAlbums(recursive, recursiveAlbums);
 
                 store.clear();
 

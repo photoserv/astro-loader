@@ -40,7 +40,7 @@ export const PhotoSchema = z.object({
     title: z.string(),
     description: z.string(),
     publish_date: z.string().datetime({ offset: true }),
-    hidden: z.boolean(),
+    customAttributes: z.record(z.string(), z.string()).optional(),
 
     metadata: z.object({
         capture_date: z.string().datetime({ offset: true }).optional().nullable(),
@@ -58,6 +58,10 @@ export const PhotoSchema = z.object({
         flash: z.string().optional().nullable(),
         copyright: z.string().optional().nullable(),
     }),
+    location: z.object({
+        latitude: z.number(),
+        longitude: z.number(),
+    }).optional().nullable(),
 
     albums: z.array(AlbumSummarySchema),
 
@@ -65,7 +69,6 @@ export const PhotoSchema = z.object({
 
     sizes: z.array(PhotoSizeSchema),
     sizeFiles: z.record(z.string(), z.string()).optional(),
-
 });
 
 export type Photo = z.infer<typeof PhotoSchema>;
@@ -79,11 +82,11 @@ export const AlbumSchema = z.object({
     description: z.string().optional().nullable(),
     sort_method: z.string(),
     sort_descending: z.boolean(),
+    customAttributes: z.record(z.string(), z.string()).optional(),
 
     photos: z.array(PhotoSummarySchema),
 
     parent: AlbumSummarySchema.optional().nullable(),
-
     children: z.array(AlbumSummarySchema),
 });
 

@@ -1,4 +1,4 @@
-import type { Album, AlbumSummary, Photo, PhotoSummary, Tag, TagSummary } from "./definitions.js";
+import type { Album, AlbumSummary, Photo, PhotoSummary, Tag, TagSummary } from "./definitions";
 
 export class PhotoservAPI {
     private apiUrl: string;
@@ -50,13 +50,16 @@ export class PhotoservAPI {
         return this.get("/albums");
     }
 
-    public async getAlbum(uuid: string): Promise<Album> {
-        return this.get(`/albums/${uuid}/?include_sizes=true`);
+    public async getAlbum(uuid: string, recursive: boolean = false): Promise<Album> {
+        return this.get(`/albums/${uuid}/?include_sizes=true&recursive=${recursive ? "true" : "false"}`);
     }
 
-    public async getAlbums(): Promise<Album[]> {
+    public async getAlbums(recursive: boolean = false, recursiveAlbums: string[] = []): Promise<Album[]> {
         const list = await this.getAlbumSummaries();
-        return Promise.all(list.map((a) => this.getAlbum(a.uuid)));
+        return Promise.all(list.map((a) => {
+            const shouldBeRecursive = recursive || recursiveAlbums.includes(a.uuid) || recursiveAlbums.includes(a.slug);
+            return this.getAlbum(a.uuid, shouldBeRecursive);
+        }));
     }
 
     public async getTagSummaries(): Promise<TagSummary[]> {

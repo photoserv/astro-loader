@@ -21,6 +21,8 @@ const albums = defineCollection({
 	loader: albumsLoader({
 		apiUrl: import.meta.env.PHOTOSERV_API_URL,
 		apiKey: import.meta.env.PHOTOSERV_API_KEY,
+        recursive: true, // OPTIONAL: whether to fetch photos in sub-albums for each album
+        recursiveAlbums: ["album-uuid", "another-album-slug"], // OPTIONAL: Fetch these albums recursively, even if recursive is false
 	})
 });
 
@@ -91,6 +93,7 @@ if (height && width) {
 
 ## Compatibility
 
-| Photoserv Version | Loader Version (this) |
+| Loader Version (this) | Maximum Photoserv Version |
 | --- | --- |
-| 0.x.x | 0.x.x |
+| Current | Current |
+| 0.0.x | 0.8.0 |
