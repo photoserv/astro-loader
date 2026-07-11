@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/photoserv/astro-loader/compare/astro-loader-0.1.0...astro-loader-0.2.0) (2026-07-11)
+
+
+### Features
+
+* Implement pLimit to avoid DOSing large Photoserv instances ([96aa2a5](https://github.com/photoserv/astro-loader/commit/96aa2a58d97bdd33419afbb3d746d295fec1a2db))
+
 ## [0.1.0](https://github.com/photoserv/astro-loader/compare/astro-loader-0.0.5...astro-loader-0.1.0) (2026-02-21)
 
 
