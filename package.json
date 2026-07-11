@@ -1,6 +1,6 @@
 {
   "name": "@photoserv/astro-loader",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "description": "Astro.js loader for Photoserv",
   "main": "dist/index.js",
@@ -44,7 +44,7 @@
   "author": "Max Loiacono <maxloiacono@protonmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^26.1.1",
+    "@types/node": "^24.10.1",
     "cpx": "^1.5.0",
     "typescript": "^5.9.3"
   },

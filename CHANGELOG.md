@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/photoserv/astro-loader/compare/astro-loader-0.2.0...astro-loader-0.2.1) (2026-07-11)
+
+
+### Bug Fixes
+
+* Fix build system ([b155809](https://github.com/photoserv/astro-loader/commit/b155809347712ac7551a7162cd85cd9bb7b15f1c))
+
 ## [0.2.0](https://github.com/photoserv/astro-loader/compare/astro-loader-0.1.0...astro-loader-0.2.0) (2026-07-11)
 
 
