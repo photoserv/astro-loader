@@ -1,8 +1,10 @@
-import type { Album, AlbumSummary, Photo, PhotoSummary, Tag, TagSummary } from "./definitions.js";
+import type { Album, AlbumSummary, Photo, PhotoSummary, Tag, TagSummary } from "./definitions";
+import pLimit from "p-limit";
 
 export class PhotoservAPI {
     private apiUrl: string;
     private apiKey: string;
+    private readonly limit = pLimit(25);
 
     constructor(apiUrl: string, apiKey: string) {
         this.apiUrl = apiUrl;
@@ -10,20 +12,24 @@ export class PhotoservAPI {
     }
 
     private async get<T = any>(path: string): Promise<T> {
-        const url = `${this.apiUrl}${path}`;
-        const res = await fetch(url, {
-            headers: {
-                Authorization: `Bearer ${this.apiKey}`,
-                Accept: "application/json",
-            },
+        return this.limit(async () => {
+            const url = `${this.apiUrl}${path}`;
+            const res = await fetch(url, {
+                headers: {
+                    Authorization: `Bearer ${this.apiKey}`,
+                    Accept: "application/json",
+                },
+            });
+
+            if (!res.ok) {
+                const msg = await res.text().catch(() => "");
+                throw new Error(
+                    `GET ${url} failed: ${res.status} ${res.statusText} ${msg}`
+                );
+            }
+
+            return res.json() as Promise<T>;
         });
-
-        if (!res.ok) {
-            const msg = await res.text().catch(() => "");
-            throw new Error(`GET ${url} failed: ${res.status} ${res.statusText} ${msg}`);
-        }
-
-        return res.json() as Promise<T>;
     }
 
     public async getPhotoSummaries(): Promise<PhotoSummary[]> {

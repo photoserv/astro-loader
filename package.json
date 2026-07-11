@@ -54,5 +54,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/photoserv/astro-loader"
+  },
+  "dependencies": {
+    "p-limit": "^7.3.0"
   }
 }

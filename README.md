@@ -96,4 +96,5 @@ if (height && width) {
 | Loader Version (this) | Maximum Photoserv Version |
 | --- | --- |
 | Current | Current |
+| 0.1.x | 0.9.x |
 | 0.0.x | 0.8.0 |
