@@ -1,4 +1,4 @@
-import type { Album, AlbumSummary, Photo, PhotoSummary, Tag, TagSummary } from "./definitions";
+import type { Album, AlbumSummary, Photo, PhotoSummary, Tag, TagSummary } from "./definitions.js";
 import pLimit from "p-limit";
 
 export class PhotoservAPI {
