@@ -1,4 +1,4 @@
-# Photoserv Astro Loader
+# DEPRECATED - MOVED TO [itsmaxymoo](https://github.com/itsmaxymoo/photoserv-astro-loader)
 
 Allows you to seamlessly use Photoserv with your Astro site.
 
